@@ -1,0 +1,24 @@
+<h1>UI Test</h1>
+
+<dropdown
+  class="m-5"
+  *ngIf="regionViewModel$ | async as vm"
+  title="Region"
+  [items]="vm.regions"
+  (onItemChange)="loadCountriesRequested($event)"
+></dropdown>
+
+<dropdown
+class="m-5"
+  *ngIf="countryViewModel$ | async as vm"
+  title="Country"
+  [items]="vm.countries"
+  (onItemChange)="loadCountriesDetailsRequested($event)"
+></dropdown>
+
+<button class="m-5" mat-raised-button color="primary" (click)="load()">Load</button>
+
+
+<country-details *ngIf="country"  [country]="country"></country-details>
+
+
